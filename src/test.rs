@@ -8,8 +8,5 @@ fn test() {
     let client = HelloClient::new(&env, &contract_id);
 
     let got = client.hello(&symbol!("Soroban"));
-    assert_eq!(
-        got,
-        vec![&env, symbol!("Hello"), symbol!("Soroban")],
-    );
+    assert_eq!(got, vec![&env, symbol!("Hello"), symbol!("Soroban")],);
 }
