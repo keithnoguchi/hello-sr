@@ -1,14 +1,17 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+//! A [hello world] contract on [Soroban] platform
+//!
+//! [hello world]: https://soroban.stellar.org/docs/getting-started/hello-world
+//! [soroban]: https://soroban.stellar.org/
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+#![no_std]
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+use soroban_sdk::{contractimpl, symbol, vec, Env, Symbol, Vec};
+
+pub struct Hello;
+
+#[contractimpl]
+impl Hello {
+    pub fn hello(env: Env, to: Symbol) -> Vec<Symbol> {
+        vec![&env, symbol!("Hello"), to]
     }
 }
