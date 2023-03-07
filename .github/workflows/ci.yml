@@ -84,6 +84,8 @@ jobs:
         uses: actions/checkout@v3
       - name: Install Rust
         run: rustup update stable
+      - name: Add wasm32 target
+        run: rustup target add wasm32-unknown-unknown
       - name: Run cargo build
         run: |
-          cargo build --target wasm-unknown-unknown --all-features --bins --examples
+          cargo build --target wasm32-unknown-unknown --all-features --bins --examples
