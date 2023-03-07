@@ -15,3 +15,6 @@ impl Hello {
         vec![&env, symbol!("Hello"), to]
     }
 }
+
+#[cfg(test)]
+mod test;
